@@ -159,7 +159,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 
 [[package]]
 name = "nanopow-rs"
-version = "0.1.0"
+version = "0.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 dependencies = [
  "blake2 0.7.0 (registry+https://github.com/rust-lang/crates.io-index)",
@@ -172,9 +172,9 @@ dependencies = [
 
 [[package]]
 name = "nanopow-rs-node"
-version = "0.1.0"
+version = "0.2.0"
 dependencies = [
- "nanopow-rs 0.1.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "nanopow-rs 0.2.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "neon 0.1.22 (registry+https://github.com/rust-lang/crates.io-index)",
  "neon-build 0.1.22 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
@@ -376,7 +376,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 "checksum libc 0.2.36 (registry+https://github.com/rust-lang/crates.io-index)" = "1e5d97d6708edaa407429faa671b942dc0f2727222fb6b6539bf1db936e4b121"
 "checksum memchr 2.0.1 (registry+https://github.com/rust-lang/crates.io-index)" = "796fba70e76612589ed2ce7f45282f5af869e0fdd7cc6199fa1aa1f1d591ba9d"
 "checksum memoffset 0.1.0 (registry+https://github.com/rust-lang/crates.io-index)" = "e163e5baece1a039e71e75b074de17a9b4114982aa109921fc20253bdf91a53c"
-"checksum nanopow-rs 0.1.0 (registry+https://github.com/rust-lang/crates.io-index)" = "a3acbe0eefc0b58f26c6767e5dea94a5bb960785c0d709e43807d1c703b62a41"
+"checksum nanopow-rs 0.2.0 (registry+https://github.com/rust-lang/crates.io-index)" = "c9f04148ffd59a91335a6b5fbbbbe15ee5f5a246019c1253a6beeaedee87c50b"
 "checksum neon 0.1.22 (registry+https://github.com/rust-lang/crates.io-index)" = "6f6078a0767408131206f802cb4ee2b1d78a035f23c209c3c0cb1dbe258a8737"
 "checksum neon-build 0.1.22 (registry+https://github.com/rust-lang/crates.io-index)" = "0220c1150ca0ac00df8fc1001dde699cf17762f208f43c497d90e91c910c0a17"
 "checksum neon-runtime 0.1.22 (registry+https://github.com/rust-lang/crates.io-index)" = "9a53b08f4dfc0ebc9ecb8bd8a02ace763e833d657f03614293254420a413c036"

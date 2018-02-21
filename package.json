@@ -1,6 +1,6 @@
 {
   "name": "nanopow-rs-node",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A wrapper for nanopow-rs for Node to provide fast, fully multithreaded Nano proof-of-work generation in Node.js.",
   "main": "lib/index.js",
   "repository": {
@@ -13,9 +13,11 @@
     "neon-cli": "^0.1.22"
   },
   "scripts": {
-    "install": "neon build"
+    "install": "neon build",
+    "test": "mocha"
   },
   "devDependencies": {
+    "mocha": "^5.0.1",
     "standard": "^11.0.0"
   }
 }

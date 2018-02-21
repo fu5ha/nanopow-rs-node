@@ -1,6 +1,6 @@
 [package]
 name = "nanopow-rs-node"
-version = "0.1.0"
+version = "0.2.0"
 authors = ["Gray Olson <gray@grayolson.com>"]
 license = "MIT"
 build = "build.rs"
@@ -14,4 +14,4 @@ neon-build = "0.1.22"
 
 [dependencies]
 neon = "0.1.22"
-nanopow-rs = "0.1"
+nanopow-rs = "0.2"

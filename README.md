@@ -4,6 +4,10 @@ A JavaScript wrapper for nanopow-rs to provide fast, safe, fully multithreaded N
 
 ## Usage
 
+### First: Install Rust
+
+See https://www.rustup.rs/ for instructions on installing Rust for your system.
+
 ### With Node
 
 ```
@@ -31,16 +35,10 @@ Basically same as above, see https://guides.neon-bindings.com/electron-apps/
 /**
  * Attempts to generate valid work for a given hash. Runs 100,000,000 attempts and if no valid work is found, returns '0000000000000000'.
  * @param hash A 32-byte (64-character) hex-encoded string. This will either be the previous block hash, or, if there is no previous block, the account's public key.
- * @return An 8-byte (16-character) hex-encoded string that is the work found. If no valid work was found, returns '0000000000000000'
+ * @param maxIters (optional) The maximum iterations to try before returning. If this parameter is omitted, is null, or is 0, it will run until valid work is found.
+ * @return An 8-byte (16-character) hex-encoded string that is the work found. If no valid work was found in maxIters, returns '0000000000000000'
  */
 nanopow.generateWork(hash)
-
-/**
- * Attempts to generate valid work for a given hash. Will continue to run until valid work is found.
- * @param hash A 32-byte (64-character) hex-encoded string. This will either be the previous block hash, or, if there is no previous block, the account's public key.
- * @return An 8-byte (16-character) hex-encoded string that is the work found.
- */
-nanopow.generateWorkNoLimit(hash)
 
 /**
  * Attempts to generate valid work for a given hash. Will continue to run until valid work is found.
