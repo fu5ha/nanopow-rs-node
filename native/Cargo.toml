@@ -1,0 +1,17 @@
+[package]
+name = "nanopow-rs-node"
+version = "0.1.0"
+authors = ["Gray Olson <gray@grayolson.com>"]
+license = "MIT"
+build = "build.rs"
+
+[lib]
+name = "nanopow_rs_node"
+crate-type = ["dylib"]
+
+[build-dependencies]
+neon-build = "0.1.22"
+
+[dependencies]
+neon = "0.1.22"
+nanopow-rs = "0.1"

@@ -1,0 +1,21 @@
+{
+  "name": "nanopow-rs-node",
+  "version": "0.1.0",
+  "description": "A wrapper for nanopow-rs for Node to provide fast, fully multithreaded Nano proof-of-work generation in Node.js.",
+  "main": "lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/termhn/nanopow-rs-node"
+  },
+  "author": "Gray Olson <gray@grayolson.com>",
+  "license": "MIT",
+  "dependencies": {
+    "neon-cli": "^0.1.22"
+  },
+  "scripts": {
+    "install": "neon build"
+  },
+  "devDependencies": {
+    "standard": "^11.0.0"
+  }
+}
