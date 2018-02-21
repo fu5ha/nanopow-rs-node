@@ -1,6 +1,6 @@
 # nanopow-rs-node
 
-A wrapper for nanopow-rs for Node to provide fast, safe, fully multithreaded Nano proof-of-work generation in Node.js.
+A JavaScript wrapper for nanopow-rs to provide fast, safe, fully multithreaded Nano proof-of-work generation in Node.js.
 
 ## Usage
 
