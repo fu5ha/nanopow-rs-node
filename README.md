@@ -1,5 +1,7 @@
 # nanopow-rs-node
 
+![npm badge](https://img.shields.io/npm/v/nanopow-rs-node.png)
+
 A JavaScript wrapper for nanopow-rs to provide fast, safe, fully multithreaded Nano proof-of-work generation in Node.js.
 
 ## Usage
