@@ -37,7 +37,7 @@ Basically same as above, see https://guides.neon-bindings.com/electron-apps/
  * @param maxIters (optional) The maximum iterations to try before returning. If this parameter is omitted, is null, or is 0, it will run until valid work is found.
  * @return An 8-byte (16-character) hex-encoded string that is the work found. If no valid work was found in maxIters, returns '0000000000000000'
  */
-nanopow.generateWork(hash)
+nanopow.generateWork(hash, maxIters)
 
 /**
  * Attempts to generate valid work for a given hash. Will continue to run until valid work is found.
