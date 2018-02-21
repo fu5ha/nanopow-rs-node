@@ -12,7 +12,7 @@ $ yarn install
 ```
 
 ```javascript
-const nanopow = require('nanopow')
+const nanopow = require('nanopow-rs-node')
 
 let hash = 'AC101449364C84CDD7562AA724BE52757EF06BCE834C50CF610DD2949291B0D9'
 const work = nanopow.generateWorkNoLimit(hash)
