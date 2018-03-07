@@ -2,6 +2,7 @@
 extern crate neon;
 
 extern crate nanopow_rs;
+use nanopow_rs::{InputHash, Work};
 
 use neon::vm::{Call, JsResult};
 use neon::js::{JsString, JsBoolean, JsNumber};
@@ -16,6 +17,10 @@ fn generate_work(call: Call) -> JsResult<JsString> {
     };
 
     let in_hash = args.require(scope, 0)?.check::<JsString>()?.value();
+    if in_hash.len() != 64 {
+        return JsError::throw(SyntaxError, "Input hash is the wrong length.")
+    }
+    let hash = InputHash::from_hex(&in_hash).unwrap();
     
     let max_iters = {
         let iters = args.require(scope, 1)?.check::<JsNumber>()?.value() as u64;
@@ -26,8 +31,12 @@ fn generate_work(call: Call) -> JsResult<JsString> {
         }
     };
 
-    let result_work = nanopow_rs::generate_work(&in_hash, max_iters);
-    let result_str = result_work.unwrap_or(String::from("0000000000000000"));
+    let result_work = nanopow_rs::generate_work(&hash, max_iters);
+    let result_str = if let Some(w) = result_work {
+        w.into()
+    } else {
+        String::from("0000000000000000")
+    };
     Ok(JsString::new(scope, &result_str).unwrap())
 }
 
@@ -39,9 +48,17 @@ fn check_work(call: Call) -> JsResult<JsBoolean> {
     };
 
     let in_hash = args.require(scope, 0)?.check::<JsString>()?.value();
+    if in_hash.len() != 64 {
+        return JsError::throw(SyntaxError, "Input hash is the wrong length.")
+    }
     let in_work = args.require(scope, 1)?.check::<JsString>()?.value();
+    if in_work.len() != 16 {
+        return JsError::throw(SyntaxError, "Input work is the wrong length.")
+    }
+    let hash = InputHash::from_hex(&in_hash).unwrap();
+    let work = Work::from_hex(&in_work).unwrap();
 
-    let valid = nanopow_rs::check_work(&in_hash, &in_work);
+    let valid = nanopow_rs::check_work(&hash, &work);
     Ok(JsBoolean::new(scope, valid))
 }
 

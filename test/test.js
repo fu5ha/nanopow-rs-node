@@ -10,6 +10,16 @@ describe('nanopow', () => {
       const valid = nanopow.checkWork(hash, work)
       assert(valid)
     })
+    it('should error on bad work length', () => {
+      const hash = '8D3E5F07BFF7B7484CDCB392F47009F62997253D28BD98B94BCED95F03C4DA09'
+      const work = '4effb6b0cd5625e'
+      assert.throws(() => { nanopow.checkWork(hash, work) })
+    })
+    it('should error on bad hash length', () => {
+      const hash = '8D3E5F07BFF7B7484CDCB392F47009F62997253D28BD98B94BCED95F03C4DA0'
+      const work = '4effb6b0cd5625e2'
+      assert.throws(() => { nanopow.checkWork(hash, work) })
+    })
     it('should reject bad work', () => {
       const hash = '8D3E5F07BFF7B7484CDCB392F47009F62997253D28BD98B94BCED95F03C4DA09'
       const work = '5effb6b0cd5625e2'
