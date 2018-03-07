@@ -1,6 +1,6 @@
 {
   "name": "nanopow-rs-node",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "A wrapper for nanopow-rs for Node to provide fast, fully multithreaded Nano proof-of-work generation in Node.js.",
   "main": "lib/index.js",
   "repository": {
