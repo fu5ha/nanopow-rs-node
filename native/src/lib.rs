@@ -12,12 +12,12 @@ use neon::task::Task;
 use neon::scope::Scope;
 
 struct GenerateTask {
-    hash: String,
+    hash: InputHash,
     max_iters: Option<u64>,
 }
 
 impl GenerateTask {
-    pub fn new(hash: String, max_iters: Option<u64>) -> Self {
+    pub fn new(hash: InputHash, max_iters: Option<u64>) -> Self {
         Self {
             hash,
             max_iters,
@@ -33,7 +33,7 @@ impl Task for GenerateTask {
     fn perform(&self) -> Result<Self::Output, Self::Error> {
         let result_work = nanopow_rs::generate_work(&self.hash, self.max_iters);
         match result_work {
-            Some(work) => Ok(work),
+            Some(work) => Ok(work.into()),
             None => Err(format!("Did not find valid work."))
         }
     }
@@ -54,6 +54,10 @@ fn generate_work(call: Call) -> JsResult<JsUndefined> {
     };
 
     let in_hash = args.require(scope, 0)?.check::<JsString>()?.value();
+    if in_hash.len() != 64 {
+        return JsError::throw(Kind::SyntaxError, "Input hash is the wrong length.")
+    }
+    let hash = InputHash::from_hex(&in_hash).unwrap();
     
     let max_iters = {
         let iters = args.require(scope, 1)?.check::<JsNumber>()?.value() as u64;
@@ -66,7 +70,7 @@ fn generate_work(call: Call) -> JsResult<JsUndefined> {
 
     let cb = args.require(scope, 2)?.check::<JsFunction>()?;
 
-    let gen_task = GenerateTask::new(in_hash, max_iters);
+    let gen_task = GenerateTask::new(hash, max_iters);
     gen_task.schedule(cb);
     Ok(JsUndefined::new())
 }
@@ -80,7 +84,7 @@ fn generate_work_sync(call: Call) -> JsResult<JsString> {
 
     let in_hash = args.require(scope, 0)?.check::<JsString>()?.value();
     if in_hash.len() != 64 {
-        return JsError::throw(SyntaxError, "Input hash is the wrong length.")
+        return JsError::throw(Kind::SyntaxError, "Input hash is the wrong length.")
     }
     let hash = InputHash::from_hex(&in_hash).unwrap();
     
@@ -111,11 +115,11 @@ fn check_work(call: Call) -> JsResult<JsBoolean> {
 
     let in_hash = args.require(scope, 0)?.check::<JsString>()?.value();
     if in_hash.len() != 64 {
-        return JsError::throw(SyntaxError, "Input hash is the wrong length.")
+        return JsError::throw(Kind::SyntaxError, "Input hash is the wrong length.")
     }
     let in_work = args.require(scope, 1)?.check::<JsString>()?.value();
     if in_work.len() != 16 {
-        return JsError::throw(SyntaxError, "Input work is the wrong length.")
+        return JsError::throw(Kind::SyntaxError, "Input work is the wrong length.")
     }
     let hash = InputHash::from_hex(&in_hash).unwrap();
     let work = Work::from_hex(&in_work).unwrap();

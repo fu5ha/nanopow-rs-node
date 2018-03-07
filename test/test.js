@@ -45,8 +45,8 @@ describe('nanopow', () => {
         .then(work => {
           done(new Error('Did not reject'))
         })
-        .catch(err => {
-          done(err)
+        .catch(_ => {
+          done()
         })
     })
   })
