@@ -1,0 +1,6 @@
+language: node_js
+node_js:
+  - node
+
+before_install:
+  - curl https://sh.rustup.rs -sSf | sh -s -- -y
