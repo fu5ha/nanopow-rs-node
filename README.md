@@ -2,6 +2,7 @@
 
 [![NPM Version](https://img.shields.io/npm/v/nanopow-rs-node.png)](https://www.npmjs.com/package/nanopow-rs-node)
 [![Build Status](https://travis-ci.org/termhn/nanopow-rs-node.svg?branch=master)](https://travis-ci.org/termhn/nanopow-rs-node)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Ftermhn%2Fnanopow-rs-node.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Ftermhn%2Fnanopow-rs-node?ref=badge_shield)
 
 A JavaScript wrapper for nanopow-rs to provide fast, safe, fully multithreaded Nano proof-of-work generation in Node.js.
 
@@ -117,3 +118,7 @@ $ yarn test
 ### Reference
 
 See Neon [docs](https://api.neon-bindings.com/neon/index.html) and [examples in their tests directory on GitHub](https://github.com/neon-bindings/neon/tree/master/test/dynamic)
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Ftermhn%2Fnanopow-rs-node.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Ftermhn%2Fnanopow-rs-node?ref=badge_large)
